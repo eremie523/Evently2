@@ -29,8 +29,6 @@ export const MongooseConnection = async (): Promise<Connection> => {
     mongooseCached.promise = mongooseCached.promise || mongoose.connect(MONGODB_URI, {
         dbName: 'Evently',
         bufferCommands: false,
-        useNewUrlParser: true, // Add useNewUrlParser for compatibility
-        useUnifiedTopology: true, // Add useUnifiedTopology for compatibility
     });
 
     // Wait for the mongoose connection to be established
