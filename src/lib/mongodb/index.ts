@@ -5,8 +5,8 @@ const MONGODB_URI = process.env.MONGODB_URI;
 
 // Interface to define the structure of the mongoose cache
 interface MongooseCacheInterface {
-    conn?: Connection; // Change 'any' to 'Connection' for better type checking
-    promise?: Promise<typeof mongoose>; // Use 'Promise<typeof mongoose>' for better type checking
+    conn?: Connection; 
+    promise?: Promise<Connection>; // Adjust this line
 }
 
 // Create an object to cache mongoose connection and promise
@@ -29,7 +29,7 @@ export const MongooseConnection = async (): Promise<Connection> => {
     mongooseCached.promise = mongooseCached.promise || mongoose.connect(MONGODB_URI, {
         dbName: 'Evently',
         bufferCommands: false,
-    });
+    }) as Promise<Connection>; // Adjust this line
 
     // Wait for the mongoose connection to be established
     mongooseCached.conn = await mongooseCached.promise;
