@@ -5,8 +5,8 @@ const MONGODB_URI = process.env.MONGODB_URI;
 
 // Interface to define the structure of the mongoose cache
 interface MongooseCacheInterface {
-    conn?: Connection; 
-    promise?: Promise<Connection>; // Adjust this line
+    conn?: any; 
+    promise?: any; // Adjust this line
 }
 
 // Create an object to cache mongoose connection and promise
