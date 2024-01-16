@@ -11,8 +11,8 @@ interface MongooseCacheInterface {
 
 // Create an object to cache mongoose connection and promise
 let mongooseCached: MongooseCacheInterface = {
-    conn: null,
-    promise: null,
+    conn: undefined,
+    promise: undefined,
 };
 
 // Function to establish or retrieve a mongoose connection
